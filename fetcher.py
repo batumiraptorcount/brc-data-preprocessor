@@ -172,16 +172,21 @@ def main(event, context):
     dbx = start_dropbox_session()
 
     if 'queryStringParameters' in event:
-        if 'date' not in event['queryStringParameters']:
-            date = datetime.now()
-        else:
-            date = datetime.strptime(event['queryStringParameters']['date'], '%Y%m%d')
 
-        if 'forced' not in event['queryStringParameters']:
-            forced = False
-        elif event['queryStringParameters']['forced'] == 'yes':
-            forced = True
+        if event['queryStringParameters'] is not None:
+            if 'date' not in event['queryStringParameters']:
+                date = datetime.now()
+            else:
+                date = datetime.strptime(event['queryStringParameters']['date'], '%Y%m%d')
+
+            if 'forced' not in event['queryStringParameters']:
+                forced = False
+            elif event['queryStringParameters']['forced'] == 'yes':
+                forced = True
+            else:
+                forced = False
         else:
+            date = datetime.now()
             forced = False
     else:
         date = datetime.now()
@@ -242,4 +247,4 @@ def main(event, context):
 if __name__ == "__main__":
     # main({'date': '20180827', 'forced': 'yes'}, None)
     # main({'date': '20190917', 'forced': 'no'}, None)
-    main({'forced': 'yes'}, None)
+    main({'queryStringParameters': {'date': '20181006', 'forced': 'yes'}}, None)
