@@ -15,9 +15,17 @@ The following records will be flagged by the preprocessor:
 - Records of aged Honey Buzzards and Black Kites outside of expected/permitted distance codes (i.e. outside of W1-O-E1).
 - Records containing unexpected combinations of sex and/or age information.
 - Records of juvenile Harriers identified to species level at suspiciously long distances (W3 or E3).
+- Records with no timestamps, which are set to 00:00:00 during processing.
 
 ## Todo
-- [ ] Implement automatic download of the data, flagging of suspicious records and storing of the data in Dropbox using AWS Lambda.
+- [x] Implement automatic download of the data, flagging of suspicious records and storing of the data in Dropbox using AWS Lambda. (Completed 10-06-2019)
 
 ## Future additions
 - Implementing checks for possibly erroneous records based on some statistical rules, e.g. the (daily) phenology of a species.
+
+## Build Lambda deployment package (requires Docker and AWS CLI)
+1. Clone this repository.
+2. Copy `fetcher.py`, `preprocessor.py` and `requirements.txt` to `lambda/` directory, using `cp $(pwd)/{fetcher.py,preprocessor.py,requirements.txt} lambda/`.
+3. Build the [Docker](https://docs.docker.com/install/) image: `docker build -t brc-data-preprocessor .`.
+4. Run the Docker container `docker run -it -v $(pwd)/lambda:/lambda brc-data-preprocessor bash /lambda/deploypackage.sh`. It will generate a `function.zip` deployment package in `lambda/`.
+5. Update Lambda function with new package `function.zip` through the [AWS CLI](https://aws.amazon.com/cli/): `aws lambda update-function-code --function-name brc-data-preprocessor --zip-file fileb://function.zip`
