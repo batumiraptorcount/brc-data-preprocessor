@@ -199,8 +199,8 @@ def preprocess_trektellen_data(data, split_by_station=False):
     # Check which records are in >E3
     suspicious_location_records = data[data['location'] == '>E3'].index.values.tolist()
 
-    # Check which records contain morphs for nonstandard species (so not Marsh, BootedE or a very rare Mon)
-    nonstandard_morph = ~data['speciesname'].isin(['Marsh', 'Mon', 'BootedE']) & data['plumage'].isin(['D', 'L'])
+    # Check which records contain morphs for nonstandard species (so not Marsh or BootedE)
+    nonstandard_morph = ~data['speciesname'].isin(['Marsh', 'BootedE']) & data['plumage'].isin(['D', 'L'])
     suspicious_morphs = data[nonstandard_morph].index.values.tolist()
 
     # Check if records had a missing timestamp which should now be set to 00:00:00
