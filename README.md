@@ -9,7 +9,7 @@ The following records will be flagged by the preprocessor:
 - Records containing >1 bird that is injured and/or killed (rare occurrence).
 - Records lacking critical information in `datetime`, `telpost`, `speciesname`, `count` or `location` columns (very unlikely, but the possible result of a bug).
 - Records of birds in >E3 (rare occurrence).
-- Records containing morphs for species we do not typically record morphs of (i.e. for species other than Marsh Harriers or Booted Eagles).
+- Records with registered morphs for all species other than Booted Eagles.
 - Records of `HB_NONJUV`, `HB_JUV`, `BK_NONJUV` and `BK_JUV` if the number of aged birds is higher than the number of counted birds (`HB` and `BK`) within a 10-minute window around the age record.
 - Records of Honey Buzzards that should probably be single-counted (at Station 2 during the HB focus period).
 - Records of aged Honey Buzzards and Black Kites outside of expected/permitted distance codes (i.e. outside of W1-O-E1).
