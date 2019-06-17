@@ -11,6 +11,7 @@ import os
 import io
 import tempfile
 from datetime import datetime
+import re
 
 import requests
 import dropbox
@@ -57,23 +58,38 @@ def check_data_availability_trektellen(session, date, both_stations=True):
                                      os.environ['TREKTELLEN_STATION2_ID'],
                                      date_string)
 
-    r_station1_url = session.get(station1_url).url
-    r_station2_url = session.get(station2_url).url
+    r_station1 = session.get(station1_url)
+    r_station2 = session.get(station2_url)
+
+    r_station1_url = r_station1.url
+    r_station2_url = r_station2.url
 
     station1_availability, station2_availability = False, False
+    station1_start, station1_end, station2_start, station2_end = None, None, None, None
 
     if station1_url == r_station1_url:
         station1_availability = True
+        station1_start, station1_end = parse_trektellen_count_times(date, r_station1.text)
 
     if station2_url == r_station2_url:
         station2_availability = True
+        station2_start, station2_end = parse_trektellen_count_times(date, r_station2.text)
+
+    times = {'s1_start': station1_start, 's1_end': station1_end, 's2_start': station2_start, 's2_end': station2_end}
 
     station_availability = [station1_availability, station2_availability]
 
     if both_stations:
-        return all(station_availability), station_availability
+        return all(station_availability), station_availability, times
     else:
-        return any(station_availability), station_availability
+        return any(station_availability), station_availability, times
+
+
+def parse_trektellen_count_times(date, html):
+    times = re.search('Counting period: (\d{2}:\d{2}) - (\d{2}:\d{2})', html)
+    start = datetime.combine(date, datetime.strptime(times.group(1), '%H:%M').time())
+    stop = datetime.combine(date, datetime.strptime(times.group(2), '%H:%M').time())
+    return start, stop
 
 
 def start_dropbox_session():
@@ -200,7 +216,7 @@ def main(event, context):
         return response
 
     s = start_trektellen_session()
-    both_stations_uploaded, separate_stations_uploaded = check_data_availability_trektellen(s, date, both_stations=True)
+    both_stations_uploaded, _, times = check_data_availability_trektellen(s, date, both_stations=True)
 
     if not both_stations_uploaded and not forced:
         message = 'Data for {} for both stations is not uploaded to Trektellen yet.'.format(date.strftime('%d-%m-%Y'))
@@ -209,7 +225,8 @@ def main(event, context):
 
     data = download_trektellen_data(s, date=date)
 
-    raw_all, raw_station1, raw_station2 = prep.preprocess_raw_trektellen_data(data, date=date, split_by_station=True)
+    raw_all, raw_station1, raw_station2 = prep.preprocess_raw_trektellen_data(data, times,
+                                                                              date=date, split_by_station=True)
     checked_all, checked_station1, checked_station2 = prep.preprocess_trektellen_data(raw_all, split_by_station=True)
 
     s1_path = '{}_S1.xlsx'.format(date.strftime('%Y%m%d'))
