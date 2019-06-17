@@ -18,8 +18,8 @@ The following records will be flagged by the preprocessor:
 - Records with no timestamps, which are set to 00:00:00 during processing.
 
 ## Todo
-- [x] Implement automatic download of the data, flagging of suspicious records and storing of the data in Dropbox using AWS Lambda. (Completed 10-06-2019)
-- [x] Automatically add `START` and `END` records to fetched data based on count start and end times. (Completed 18-06-2019) 
+- [x] Implement automatic download of the data, flagging of suspicious records and storing of the data in Dropbox using AWS Lambda.
+- [x] Automatically add `START` and `END` records to fetched data based on count start and end times.
 
 ## Future additions
 - [ ] Implement checks for possibly erroneous records based on some statistical rules, e.g. the expected (daily) phenology of a species.
