@@ -26,9 +26,9 @@ The following records will be flagged by the preprocessor:
 
 ## Build Lambda deployment package (requires Docker and AWS CLI)
 1. Clone this repository.
-2. Copy `fetcher.py`, `preprocessor.py` and `requirements.txt` to `lambda/` directory.
+2. Copy preprocessor function files to `lambda/` directory.
     ```
-    cp $(pwd)/{fetcher.py,preprocessor.py,requirements.txt} lambda/`.
+    cp $(pwd)/{fetcher.py,preprocessor.py,requirements.txt} lambda/
     ```
 3. Build the [Docker](https://docs.docker.com/install/) image to generate a deployment package of function code. 
     ```
