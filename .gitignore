@@ -28,3 +28,5 @@ Temporary Items
 
 .idea/
 dev.env
+lambda/*
+!lambda/deploypackage.sh
