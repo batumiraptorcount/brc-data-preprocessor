@@ -96,7 +96,7 @@ expected_combinations = {
 }
 
 
-def preprocess_raw_trektellen_data(data_csv, times, date=None, split_by_station=False):
+def preprocess_raw_trektellen_data(data_csv, times=None, date=None, split_by_station=False):
     data = pd.read_csv(data_csv)
 
     # Change timestamp to 00:00 if timestamp was missing
@@ -110,14 +110,15 @@ def preprocess_raw_trektellen_data(data_csv, times, date=None, split_by_station=
     data.drop(columns=['date', 'timestamp', 'countid', 'speciesid', 'year', 'yday'], inplace=True)
 
     # Add start and end times
-    time_records = [[times['s1_start'], 1047, 'START', 1, 0, 0, 'O'],
-                    [times['s1_end'], 1047, 'END', 1, 0, 0, 'O'],
-                    [times['s2_start'], 1048, 'START', 1, 0, 0, 'O'],
-                    [times['s2_end'], 1048, 'END', 1, 0, 0, 'O']]
+    if times:
+        time_records = [[times['s1_start'], 1047, 'START', 1, 0, 0, 'O'],
+                        [times['s1_end'], 1047, 'END', 1, 0, 0, 'O'],
+                        [times['s2_start'], 1048, 'START', 1, 0, 0, 'O'],
+                        [times['s2_end'], 1048, 'END', 1, 0, 0, 'O']]
 
-    count_times = pd.DataFrame(time_records, columns=['datetime', 'telpost', 'speciesname', 'count',
-                                                      'countback', 'local', 'location'])
-    data = pd.concat([data, count_times], sort=True)
+        count_times = pd.DataFrame(time_records, columns=['datetime', 'telpost', 'speciesname', 'count',
+                                                          'countback', 'local', 'location'])
+        data = pd.concat([data, count_times], sort=True)
 
     # Change column order
     column_order = ['datetime', 'telpost', 'speciesname', 'count', 'countback', 'local', 'age', 'sex', 'plumage',
