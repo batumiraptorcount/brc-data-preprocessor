@@ -398,6 +398,10 @@ def preprocess_trektellen_data(data, split_by_station=False):
                           data['age'].isin(['J', 'Non-Juv']))
     unreliable_ageing_records = data[unreliable_ageing].index.values.tolist()
 
+    # Check if female Pallid Harrier has detailed age
+    unreliable_female_pallid = (data['speciesname'] == 'Pal') & (data['age'].isin(['I', 'A'])) & (data['sex'] == 'F')
+    unreliable_female_pallid_records = data[unreliable_female_pallid].index.values.tolist()
+
     # Add flags to check column
     data['check'] = ""
     data.loc[unexpected_age_records, 'check'] = data.loc[unexpected_age_records, 'check'] + 'unexpected age, '
@@ -414,6 +418,7 @@ def preprocess_trektellen_data(data, split_by_station=False):
     data.loc[suspicious_dc_records, 'check'] = data.loc[suspicious_dc_records, 'check'] + 'erroneous doublecount, '
     data.loc[suspicious_migtype_records, 'check'] = data.loc[suspicious_migtype_records, 'check'] + 'unusual nr of killed/injured birds, '
     data.loc[unreliable_ageing_records, 'check'] = data.loc[unreliable_ageing_records, 'check'] + 'doubtful ageing, '
+    data.loc[unreliable_female_pallid_records, 'check'] = data.loc[unreliable_female_pallid_records, 'check'] + 'doubtful ageing, '
     data.loc[nonprotocol_species_records, 'check'] = 'non-protocol species, '
     data['check'] = data['check'].str[:-2]
 
