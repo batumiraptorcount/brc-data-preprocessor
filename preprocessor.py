@@ -122,6 +122,9 @@ def preprocess_raw_trektellen_data(data_csv, times, date=None, split_by_station=
     data.loc[(data.telpost == 1047), 'telpost'] = "1. Sakhalvasho"
     data.loc[(data.telpost == 1048), 'telpost'] = "2. Shuamta"
 
+    # Replace HB_AD with HB_NONJUV
+    data.loc[(data.speciesname == 'HB_AD'), 'speciesname'] = 'HB_NONJUV'
+
     # Sort file by newly created dates and telpost names
     data.sort_values(by=['datetime', 'telpost'], inplace=True)
 
