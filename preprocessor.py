@@ -57,6 +57,7 @@ expected_combinations = {
     'DemCrane': {'age': ['J', 'A', 'I', 'Non-Juv', None], 'sex': None},
     'Dove_SPEC': {'age': None, 'sex': None},
     'EgyptianV': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
+    'EleonoraF': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'EuCrane': {'age': ['J', 'A', 'I', 'Non-Juv', None], 'sex': None},
     'GoldenE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
     'GreaterSE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
@@ -238,7 +239,7 @@ def preprocess_trektellen_data(data, split_by_station=False):
     suspicious_location_records = data[data['location'] == '>E3'].index.values.tolist()
 
     # Check which records contain morphs for species other than Booted Eagles
-    nonstandard_morph = ~data['speciesname'].isin(['BootedE']) & data['plumage'].isin(['D', 'L'])
+    nonstandard_morph = ~data['speciesname'].isin(['BootedE', 'EleonoraF']) & data['plumage'].isin(['D', 'L'])
     suspicious_morphs = data[nonstandard_morph].index.values.tolist()
 
     # Check if records had a missing timestamp which should now be set to 00:00:00
