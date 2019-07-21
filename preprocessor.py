@@ -386,10 +386,17 @@ def preprocess_trektellen_data(data, split_by_station=False):
 
         unexpected_sex_records.extend(species_records[unexpected_sex].index.tolist())
 
-    # Check if juvenile harriers are identified in W3 or E3
-    unreliable_juvenile_harriers = (data['speciesname'].isin(['Mon', 'Pal', 'Hen', 'Marsh'])) & \
-                                   (data['location'].isin(['W3', 'E3'])) & (data['age'] == 'J')
-    unreliable_juvenile_harriers_records = data[unreliable_juvenile_harriers].index.values.tolist()
+    # Check if unreliable ageing occurred in W3, E3 or >E3, excluding
+    # - Mon, Pal, Hen, Marsh & MonPalHen with age Non-Juv and sex (but not FC)
+    # - MonPalHen with age J
+    # - Non-Juv and Juv large eagles
+    unreliable_ageing = data['location'].isin(['W3', 'E3', '>E3']) & ~(data['age'].isna()) & \
+                        ~(data['speciesname'].isin(['Mon', 'Pal', 'Hen', 'Marsh', 'MonPalHen']) &
+                          (data['age'] == 'Non-Juv') & data['sex'].isin(['M', 'F'])) & \
+                        ~((data['speciesname'] == 'MonPalHen') & (data['age'] == 'J')) & \
+                        ~(data['speciesname'].isin(['Large EAGLE', 'LesserSE', 'GreaterSE', 'SteppeE']) &
+                          data['age'].isin(['J', 'Non-Juv']))
+    unreliable_ageing_records = data[unreliable_ageing].index.values.tolist()
 
     # Add flags to check column
     data['check'] = ""
@@ -406,7 +413,7 @@ def preprocess_trektellen_data(data, split_by_station=False):
     data.loc[gap_records, 'check'] = data.loc[gap_records, 'check'] + 'gaps in essential columns, '
     data.loc[suspicious_dc_records, 'check'] = data.loc[suspicious_dc_records, 'check'] + 'erroneous doublecount, '
     data.loc[suspicious_migtype_records, 'check'] = data.loc[suspicious_migtype_records, 'check'] + 'unusual nr of killed/injured birds, '
-    data.loc[unreliable_juvenile_harriers_records, 'check'] = data.loc[unreliable_juvenile_harriers_records, 'check'] + 'unreliable ageing, '
+    data.loc[unreliable_ageing_records, 'check'] = data.loc[unreliable_ageing_records, 'check'] + 'doubtful ageing, '
     data.loc[nonprotocol_species_records, 'check'] = 'non-protocol species, '
     data['check'] = data['check'].str[:-2]
 
