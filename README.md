@@ -14,8 +14,10 @@ The following records will be flagged by the preprocessor:
 - Records of Honey Buzzards that should probably be single-counted (at Station 2 during the HB focus period).
 - Records of aged Honey Buzzards and Black Kites outside of expected/permitted distance codes (i.e. outside of W1-O-E1).
 - Records containing unexpected combinations of sex and/or age information.
-- Records of juvenile Harriers identified to species level at suspiciously long distances (W3 or E3).
 - Records with no timestamps, which are set to 00:00:00 during processing.
+- Records containing non-protocol species.
+- Records with age details in `W3`, `E3` and `>E3`, excluding non-juvenile harriers with a sex, juvenile `MonPalHen` and juvenile/non-juvenile eagles.
+- Records of female Pallid Harriers with `I` or `A` age.
 
 ## Todo
 - [x] Implement automatic download of the data, flagging of suspicious records and storing of the data in Dropbox using AWS Lambda.
