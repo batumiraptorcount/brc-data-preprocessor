@@ -73,11 +73,13 @@ expected_combinations = {
     'Large EAGLE': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'Large FALCON': {'age': None, 'sex': None},
     'LesserSE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
+    'LongLB': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'Marsh': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F'),
               (None, 'FC'), (None, None)],
     'MediumRaptor': {'age': None, 'sex': None},
     'Mon': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F')],
     'MonPalHen': [('J', None), ('Non-Juv', 'M'), ('Non-Juv', 'F'), (None, 'FC'), (None, None)],
+    'OrientalTD': {'age': None, 'sex': None},
     'Osprey': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': ['M', 'F', None]},
     'Pal': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F')],
     'Peregrine': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
@@ -138,6 +140,7 @@ def preprocess_raw_trektellen_data(data_csv, times=None, date=None, split_by_sta
     data.loc[(data.speciesname == 'Buzzard-SPEC'), 'speciesname'] = 'Buzzard_SPEC'
     data.loc[(data.speciesname == 'dove (Columba) sp.'), 'speciesname'] = 'Dove_SPEC'
     data.loc[(data.speciesname == 'Harrier-SPEC'), 'speciesname'] = 'Harrier_SPEC'
+    data.loc[(data.speciesname == 'Oriental Turtle-Dove'), 'speciesname'] = 'OrientalTD'
 
     # Sort file by newly created dates and telpost names
     data.sort_values(by=['datetime', 'telpost'], inplace=True)
