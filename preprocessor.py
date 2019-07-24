@@ -48,42 +48,58 @@ expected_combinations = {
     'BK': {'age': None, 'sex': None},
     'BK_JUV': {'age': None, 'sex': None},
     'BK_NONJUV': {'age': None, 'sex': None},
+    'BlackV': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'BlaStork': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'BootedE': {'age': ['J', 'Non-Juv', None], 'sex': None},
+    'Buzzard_SPEC': {'age': None, 'sex': None},
     'CrestedHB': {'age': ['J', 'A'], 'sex': ['M', 'F']},
+    'DalPel': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
+    'DemCrane': {'age': ['J', 'A', 'I', 'Non-Juv', None], 'sex': None},
+    'Dove_SPEC': {'age': None, 'sex': None},
     'EgyptianV': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
+    'EleonoraF': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'EuCrane': {'age': ['J', 'A', 'I', 'Non-Juv', None], 'sex': None},
+    'GoldenE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
     'GreaterSE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
     'GriffonV': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
+    'Harrier_SPEC': {'age': None, 'sex': None},
     'HB': {'age': None, 'sex': None},
     'HB_JUV': {'age': None, 'sex': None},
     'HB_NONJUV': {'age': None, 'sex': ['M', 'F', None]},
+    'Hen': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F'),
+            (None, 'FC'), (None, None)],
     'ImperialE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
+    'Lanner': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'Large EAGLE': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
+    'Large FALCON': {'age': None, 'sex': None},
     'LesserSE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
+    'LongLB': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
+    'Marsh': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F'),
+              (None, 'FC'), (None, None)],
+    'MediumRaptor': {'age': None, 'sex': None},
+    'Mon': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F')],
+    'MonPalHen': [('J', None), ('Non-Juv', 'M'), ('Non-Juv', 'F'), (None, 'FC'), (None, None)],
+    'OrientalTD': {'age': None, 'sex': None},
     'Osprey': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': ['M', 'F', None]},
+    'Pal': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F')],
     'Peregrine': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
+    'Raptor_SPEC': {'age': None, 'sex': None},
     'Roller': {'age': None, 'sex': None},
     'SakerF': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
     'ShortTE': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'StepBuz': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'SteppeE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
     'StockD': {'age': None, 'sex': None},
+    'Stork_SPEC': {'age': None, 'sex': None},
+    'TurtleD': {'age': None, 'sex': None},
+    'WhitePel': {'age': ['J', 'I', 'A', 'Non-Juv', None], 'sex': None},
     'WhiStork': {'age': ['J', 'A', 'Non-Juv', None], 'sex': None},
     'WhiteTE': {'age': ['J', 'I', 'A', 'Non-Juv'], 'sex': None},
     'WoodP': {'age': None, 'sex': None},
-    'large FALCON': {'age': None, 'sex': None},
-    'MonPalHen': [('J', None), ('Non-Juv', 'M'), ('Non-Juv', 'F'), (None, 'FC'), (None, None)],
-    'Pal': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F')],
-    'Mon': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F')],
-    'Hen': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F'),
-            (None, 'FC'), (None, None)],
-    'Marsh': [('J', None), ('I', 'M'), ('A', 'M'), ('Non-Juv', 'M'), ('I', 'F'), ('A', 'F'), ('Non-Juv', 'F'),
-              (None, 'FC'), (None, None)],
 }
 
 
-def preprocess_raw_trektellen_data(data_csv, times, date=None, split_by_station=False):
+def preprocess_raw_trektellen_data(data_csv, times=None, date=None, split_by_station=False):
     data = pd.read_csv(data_csv)
 
     # Change timestamp to 00:00 if timestamp was missing
@@ -97,14 +113,15 @@ def preprocess_raw_trektellen_data(data_csv, times, date=None, split_by_station=
     data.drop(columns=['date', 'timestamp', 'countid', 'speciesid', 'year', 'yday'], inplace=True)
 
     # Add start and end times
-    time_records = [[times['s1_start'], 1047, 'START', 1, 0, 0, 'O'],
-                    [times['s1_end'], 1047, 'END', 1, 0, 0, 'O'],
-                    [times['s2_start'], 1048, 'START', 1, 0, 0, 'O'],
-                    [times['s2_end'], 1048, 'END', 1, 0, 0, 'O']]
+    if times:
+        time_records = [[times['s1_start'], 1047, 'START', 1, 0, 0, 'O'],
+                        [times['s1_end'], 1047, 'END', 1, 0, 0, 'O'],
+                        [times['s2_start'], 1048, 'START', 1, 0, 0, 'O'],
+                        [times['s2_end'], 1048, 'END', 1, 0, 0, 'O']]
 
-    count_times = pd.DataFrame(time_records, columns=['datetime', 'telpost', 'speciesname', 'count',
-                                                      'countback', 'local', 'location'])
-    data = pd.concat([data, count_times], sort=True)
+        count_times = pd.DataFrame(time_records, columns=['datetime', 'telpost', 'speciesname', 'count',
+                                                          'countback', 'local', 'location'])
+        data = pd.concat([data, count_times], sort=True)
 
     # Change column order
     column_order = ['datetime', 'telpost', 'speciesname', 'count', 'countback', 'local', 'age', 'sex', 'plumage',
@@ -114,6 +131,16 @@ def preprocess_raw_trektellen_data(data_csv, times, date=None, split_by_station=
     # Replace station numbers with names
     data.loc[(data.telpost == 1047), 'telpost'] = "1. Sakhalvasho"
     data.loc[(data.telpost == 1048), 'telpost'] = "2. Shuamta"
+
+    # Replace species names
+    data.loc[(data.speciesname == 'HB_AD'), 'speciesname'] = 'HB_NONJUV'
+    data.loc[(data.speciesname == 'large FALCON'), 'speciesname'] = 'Large FALCON'
+    data.loc[(data.speciesname == 'Raptor-SPEC'), 'speciesname'] = 'Raptor_SPEC'
+    data.loc[(data.speciesname == 'Stork-SPEC'), 'speciesname'] = 'Stork_SPEC'
+    data.loc[(data.speciesname == 'Buzzard-SPEC'), 'speciesname'] = 'Buzzard_SPEC'
+    data.loc[(data.speciesname == 'dove (Columba) sp.'), 'speciesname'] = 'Dove_SPEC'
+    data.loc[(data.speciesname == 'Harrier-SPEC'), 'speciesname'] = 'Harrier_SPEC'
+    data.loc[(data.speciesname == 'Oriental Turtle-Dove'), 'speciesname'] = 'OrientalTD'
 
     # Sort file by newly created dates and telpost names
     data.sort_values(by=['datetime', 'telpost'], inplace=True)
@@ -198,6 +225,11 @@ def preprocess_trektellen_data(data, split_by_station=False):
         else:
             suspicious_dc_records.extend([row['index']])
 
+    # Check if records contain protocol species or protocol codes
+    codes = ['START', 'END', 'SHOT']
+    nonprotocol_species = ~data['speciesname'].isin(expected_combinations.keys()) & ~data['speciesname'].isin(codes)
+    nonprotocol_species_records = data[nonprotocol_species].index.values.tolist()
+
     # Check number of migtype birds in groups
     many_migtype = (pd.notna(data['migtype'])) & (data['count'] > 1)
     suspicious_migtype_records = data[many_migtype].index.values.tolist()
@@ -210,7 +242,7 @@ def preprocess_trektellen_data(data, split_by_station=False):
     suspicious_location_records = data[data['location'] == '>E3'].index.values.tolist()
 
     # Check which records contain morphs for species other than Booted Eagles
-    nonstandard_morph = ~data['speciesname'].isin(['BootedE']) & data['plumage'].isin(['D', 'L'])
+    nonstandard_morph = ~data['speciesname'].isin(['BootedE', 'EleonoraF']) & data['plumage'].isin(['D', 'L'])
     suspicious_morphs = data[nonstandard_morph].index.values.tolist()
 
     # Check if records had a missing timestamp which should now be set to 00:00:00
@@ -358,16 +390,27 @@ def preprocess_trektellen_data(data, split_by_station=False):
 
         unexpected_sex_records.extend(species_records[unexpected_sex].index.tolist())
 
-    # Check if juvenile harriers are identified in W3 or E3
-    unreliable_juvenile_harriers = (data['speciesname'].isin(['Mon', 'Pal', 'Hen', 'Marsh'])) & \
-                                   (data['location'].isin(['W3', 'E3'])) & (data['age'] == 'J')
-    unreliable_juvenile_harriers_records = data[unreliable_juvenile_harriers].index.values.tolist()
+    # Check if unreliable ageing occurred in W3, E3 or >E3, excluding
+    # - Mon, Pal, Hen, Marsh & MonPalHen with age Non-Juv and sex (but not FC)
+    # - MonPalHen with age J
+    # - Non-Juv and Juv large eagles
+    unreliable_ageing = data['location'].isin(['W3', 'E3', '>E3']) & ~(data['age'].isna()) & \
+                        ~(data['speciesname'].isin(['Mon', 'Pal', 'Hen', 'Marsh', 'MonPalHen']) &
+                          (data['age'] == 'Non-Juv') & data['sex'].isin(['M', 'F'])) & \
+                        ~((data['speciesname'] == 'MonPalHen') & (data['age'] == 'J')) & \
+                        ~(data['speciesname'].isin(['Large EAGLE', 'LesserSE', 'GreaterSE', 'SteppeE']) &
+                          data['age'].isin(['J', 'Non-Juv']))
+    unreliable_ageing_records = data[unreliable_ageing].index.values.tolist()
+
+    # Check if female Pallid Harrier has detailed age
+    unreliable_female_pallid = (data['speciesname'] == 'Pal') & (data['age'].isin(['I', 'A'])) & (data['sex'] == 'F')
+    unreliable_female_pallid_records = data[unreliable_female_pallid].index.values.tolist()
 
     # Add flags to check column
     data['check'] = ""
     data.loc[unexpected_age_records, 'check'] = data.loc[unexpected_age_records, 'check'] + 'unexpected age, '
     data.loc[unexpected_sex_records, 'check'] = data.loc[unexpected_sex_records, 'check'] + 'unexpected sex, '
-    data.loc[unexpected_harrier_records, 'check'] = data.loc[unexpected_harrier_records, 'check'] + 'unexpected age + sex combination, '
+    data.loc[unexpected_harrier_records, 'check'] = data.loc[unexpected_harrier_records, 'check'] + 'unexpected species+age+sex combination, '
     data.loc[ageing_outside_permitted_distances_records, 'check'] = data.loc[ageing_outside_permitted_distances_records, 'check'] + 'ageing distance, '
     data.loc[non_singlecount_hb_records, 'check'] = data.loc[non_singlecount_hb_records, 'check'] + 'singlecount missing? (leave as is), '
     data.loc[count_age_mismatch_records_hb, 'check'] = data.loc[count_age_mismatch_records_hb, 'check'] + 'mismatch number of counted and aged birds, '
@@ -376,9 +419,11 @@ def preprocess_trektellen_data(data, split_by_station=False):
     data.loc[missing_timestamps, 'check'] = data.loc[missing_timestamps, 'check'] + 'incorrect timestamp, '
     data.loc[suspicious_location_records, 'check'] = data.loc[suspicious_location_records, 'check'] + 'unusual location, '
     data.loc[gap_records, 'check'] = data.loc[gap_records, 'check'] + 'gaps in essential columns, '
-    data.loc[suspicious_dc_records, 'check'] = data.loc[suspicious_dc_records, 'check'] + 'erroneous doublecount, '
+    data.loc[suspicious_dc_records, 'check'] = data.loc[suspicious_dc_records, 'check'] + 'erroneous doublecount (leave as is), '
     data.loc[suspicious_migtype_records, 'check'] = data.loc[suspicious_migtype_records, 'check'] + 'unusual nr of killed/injured birds, '
-    data.loc[unreliable_juvenile_harriers_records, 'check'] = data.loc[unreliable_juvenile_harriers_records, 'check'] + 'unreliable ageing, '
+    data.loc[unreliable_ageing_records, 'check'] = data.loc[unreliable_ageing_records, 'check'] + 'doubtful ageing, '
+    data.loc[unreliable_female_pallid_records, 'check'] = data.loc[unreliable_female_pallid_records, 'check'] + 'doubtful ageing, '
+    data.loc[nonprotocol_species_records, 'check'] = 'non-protocol species, '
     data['check'] = data['check'].str[:-2]
 
     if split_by_station:
